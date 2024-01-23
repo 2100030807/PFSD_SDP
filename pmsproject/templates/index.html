@@ -1,0 +1,368 @@
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+        Main
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.sidenav .search-container {
+  float: right;
+}
+
+.sidenav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.sidenav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidenav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav .search-container {
+    float: none;
+  }
+  .sidenav a, .sidenav input[type=text], .sidenav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .sidenav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+.column {
+  float: left;
+  width: 31.5%;
+    top: 200%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: #FFE4E1;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #7FFFD4;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 50%;
+    display: block;
+  }
+}
+
+        .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+        .search{
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+        .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 3px 17px;
+            width: 129px;
+        }
+
+.myDiv
+{
+  border: 5px outset black;
+  background-color: blue;
+  text-align: center;
+}
+
+
+.logo
+{
+  position: relative;
+  float: left;
+  width: 80;
+  top:0
+}
+.mySlides {display:none;}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 60px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+        {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+    <center><h3 class="animate-charcter"> EXFLOR</h3> </center>
+    </div>
+  </div>
+</div><br>
+
+
+ <header>
+        <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'registration' %}">Registration</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'adminlogin' %}">Admin Login</a></li>
+
+        </div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+     <br>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+    </header>
+
+<br>
+
+{% block 'body' %}
+
+<div class="header">
+<header class="w3-display-container w3-wide" id="home">
+    <img src="{% static 'images/logo.png' %}" alt="img1" style=width="1600" height="1160" >
+    <div class="w3-display-left w3-padding-large">
+      <h1 class="w3-text-white">EXFLOR</h1>
+      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>FASHION BLOG</b></h1>
+      <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('login').style.display='block'"><a href="{% url 'registration' %}">Registration</a></button></h6>
+    </div>
+    <h3 align=center>TO</h3>
+  </header>
+    <div class="w3-content w3-display-container">
+  <img class="mySlides" src="{% static 'images/stanley.png' %}" alt="img1" style=width="1100" height="1100">
+      <img class="mySlides" src="{% static 'images/magazine.png' %}" alt="img1" style=width="760" height="1300">
+  <img class="mySlides" src="{% static 'images/nestle.png' %}" alt="img1" style=width="360" height="327">
+  <img class="mySlides" src="{% static 'images/milton.png' %}" alt="img1" style=width="600" height="600">
+
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+    <h1 style="text-align:center">BOOK YOUR SERVICE<br></h1>
+    <div class="row">
+  <div class="column">
+    <div class="card">
+        <center>  <img src="{% static 'images/fur.png' %}" alt="img1" style="width:100%"> </center>
+      <div class="container">
+        <h2>explore mode of services</h2>
+<a href="http://127.0.0.1:8000/furniture">
+            <button class="button">EXPLORE</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<h3 align=center>Login to access the website.</h3>
+<h4 align=center>register->login</h4>
+<br><br><br>
+
+  <div class="column">
+    <marquee><img src="{% static 'images/footerimg3.png' %}" alt="img3" style=width="800" height="800"></marquee>
+  </div>
+<br><br><br>
+<br><br><br>
+<h3>Online Shopping Deals Of The Day - Best Online Shopping Websites - EXFLOR</h3><br>
+Opens a new tab
+Do you know what online shopping deals of the day mean?<br> If you are an online shopper then you should know what an online shopping deal of the day means?<br>
+<br><br><br>
+<b>POPULAR SEARCHES</b><br>
+<h6>Adidas |Online Shopping  |Nike | Pepe |Jeans | Puma | United Colors of Benetton | <br>Fastrack | Shorts | Being Human | Skirts  |Woodland  |Supra  |Dresses | Clothing <br>Jewellery | T-shirts | Shoes | Bags  |Watches|  Caps | Shirts  |Backpacks  | Flip Flops <br> Sunglasses | Kurtas | Lingerie | Jackets | Skechers | Saree | Sandals | Puma | Tshirts <br> Woodland | Shoes | Titan Watches | Fastrack Watches | Wrangler Shirts | Adidas Tshirts | Nike Shoes | Roadster Shirts <br> Casual Shoes | Running Shoes | Nike Sports Shoes | Jeans | Being Human Tshirts | Converse Shoes | Cricket Shoes<br></h6>
+<br><br><br>
+<br><br><br>
+100% <b>ORIGINAL</b> guarantee for all products at EXFLOR<br>
+Return within 30days of receiving your order<br>
+<br><br><br>
+<br><br><br>
+
+
+
+
+</div>
+
+{% endblock %}
+
+
+
+</body>
+</html>
+
+

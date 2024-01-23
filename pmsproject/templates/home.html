@@ -1,0 +1,550 @@
+{% load static %}
+<html>
+<head>
+
+    <title>
+        {% block 'title' %}
+           Home
+        {% endblock %}
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+ {% block 'style' %}
+* {
+   box-sizing: border-box;
+}
+
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.sidenav .search-container {
+  float: right;
+}
+
+.sidenav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.sidenav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidenav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav .search-container {
+    float: none;
+  }
+  .sidenav a, .sidenav input[type=text], .sidenav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .sidenav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+.column {
+  float: left;
+  width: 31.5%;
+    top: 200%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: #FFE4E1;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #7FFFD4;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 50%;
+    display: block;
+  }
+}
+
+        .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+        .search{
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+        .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 3px 17px;
+            width: 129px;
+        }
+
+.myDiv
+{
+  border: 5px outset black;
+  background-color: blue;
+  text-align: center;
+}
+
+
+.logo
+{
+  position: relative;
+  float: left;
+  width: 80;
+  top:0
+}
+.mySlides {display:none;}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 60px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+.collection-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+        {% endblock %}
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+    <center><h3 class="animate-charcter"> EXFLOR</h3> </center>
+    </div>
+  </div>
+</div><br>
+
+<br>
+
+ <header>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">about</a></li>
+                <li><a href="{% url 'viewprofile' %}">viewprofile</a></li>
+                <li><a href="{% url 'changepassword' %}">changepassword</a></li>
+    <li><a href="{% url 'vieweproducts' %}">View Products</a></li>
+                <li><a href="{% url 'emplogout' %}">Logout</a></li>
+</div>
+
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+    </header>
+               <h4 align="right">Hi, {{ename}}</h4>
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+    </header>
+
+<br>
+
+{% block 'body' %}
+
+<div class="header">
+<header class="w3-display-container w3-wide" id="home">
+    <img src="{% static 'images/logo.png' %}" alt="img1" style=width="1600" height="1160" >
+    <div class="w3-display-left w3-padding-large">
+      <h1 class="w3-text-white">EXFLOR</h1>
+      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>YOUR GALLERY</b></h1>
+      <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('login').style.display='block'">WELCOME</a></button></h6>
+    </div>
+    <h3 align=center>Quality Assurance.</h3>
+  </header>
+    <div class="w3-content w3-display-container">
+  <img class="mySlides" src="{% static 'images/stanley.png' %}" alt="img1" style=width="1100" height="1100">
+      <img class="mySlides" src="{% static 'images/magazine.png' %}" alt="img1" style=width="760" height="1300">
+  <img class="mySlides" src="{% static 'images/nestle.png' %}" alt="img1" style=width="360" height="327">
+  <img class="mySlides" src="{% static 'images/milton.png' %}" alt="img1" style=width="600" height="600">
+
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+</div>
+    <h1 style="text-align:center">Categories<br></h1>
+    <div class="row">
+  <div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>PRODUCTS</h2>
+            <a href="http://127.0.0.1:8000/furniture">
+            <button class="button">select</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="column">
+    <marquee><img src="{% static 'images/footerimg3.png' %}" alt="img3" style=width="800" height="800"></marquee>
+  </div>
+<br><br><br>
+<br><br><br>
+<h3>Online Shopping Deals Of The Day - Best Online Shopping Websites - EXFLOR</h3><br>
+Opens a new tab
+Do you know what online shopping deals of the day mean?<br> If you are an online shopper then you should know what an online shopping deal of the day means?<br>
+<br><br><br>
+<b>POPULAR SEARCHES</b><br>
+<h6>Adidas |Online Shopping  |Nike | Pepe |Jeans | Puma | United Colors of Benetton | <br>Fastrack | Shorts | Being Human | Skirts  |Woodland  |Supra  |Dresses | Clothing <br>Jewellery | T-shirts | Shoes | Bags  |Watches|  Caps | Shirts  |Backpacks  | Flip Flops <br> Sunglasses | Kurtas | Lingerie | Jackets | Skechers | Saree | Sandals | Puma | Tshirts <br> Woodland | Shoes | Titan Watches | Fastrack Watches | Wrangler Shirts | Adidas Tshirts | Nike Shoes | Roadster Shirts <br> Casual Shoes | Running Shoes | Nike Sports Shoes | Jeans | Being Human Tshirts | Converse Shoes | Cricket Shoes<br></h6>
+<br><br><br>
+<br><br><br>
+100% <b>ORIGINAL</b> guarantee for all products at EXFLOR<br>
+Return within 30days of receiving your order<br>
+<br><br><br>
+<br><br><br>
+<nav class="product-filter">
+
+  <h1>ALL PRODUCTS</h1>
+
+  <div class="sort">
+
+    <div class="collection-sort">
+      <label>Filter by:</label>
+      <select>
+        <option value="/">FURNITURE</option>
+      </select>
+    </div>
+
+    <div class="collection-sort">
+      <label>Sort by:</label>
+      <select>
+        <option value="/">IKEA</option>
+      </select>
+    </div>
+
+  </div>
+
+</nav>
+<br><br><br>
+
+<div class="header">
+
+    <div class="row">
+  <div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur1.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>Sofas</h2>
+        <a href="https://www.ikea.com/in/en/p/ektorp-3-seat-sofa-remmarn-light-grey-s19320054/">
+            <button class="button"><B>
+            </B>BUY NOW!</button>
+            </a>
+      </div>
+    </div>
+  </div>
+        <div class="column">
+    <div class="card">
+      <img src="{% static 'images/fur 2.png' %}" alt="img1" style="width:100%">
+
+      <div class="container">
+        <h2>Tables</h2>
+
+        <a href="https://www.ikea.com/in/en/p/kallax-shelving-unit-black-brown-10351889/">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+
+        <div class="column">
+    <div class="card">
+      <img src="{% static 'images/a1.png' %}" alt="img1" style="width:100%">
+
+      <div class="container">
+        <h2>laptop kit</h2>
+
+        <a href="https://www.flipkart.com/d-v-tech-full-set-laptop-protector-7-1-screen-guard-15-6-inch-back-lamination-14-17-keyboard-protector-palmrest-inch-bag-sleeve-cleaner-mouse-pad-pack-combo/p/itmc1c27ead46c07?pid=LACFWVUCHX9UQDK4&lid=LSTLACFWVUCHX9UQDK4KCWHC2&marketplace=FLIPKART&store=6bo%2Fai3%2Fc1j&srno=b_1_4&otracker=pp_reco_You%2Bmight%2Bbe%2Binterested%2Bin_1_34.dealCard.OMU_cid%3AS_F_N_6bo_ai3_c1j__d_50-100__NONE_ALL%3Bnid%3A6bo_ai3_c1j_%3Bet%3AS%3Beid%3A6bo_ai3_c1j_%3Bmp%3AF%3Bct%3Ad%3B&otracker1=pp_reco_PINNED_productRecommendation%2FAugmentSelling_You%2Bmight%2Bbe%2Binterested%2Bin_BANNER_HORIZONTAL_dealCard_cc_1_NA_view-all&fm=Search&iid=02173d3b-8e06-4b03-9566-f47bd516923a.LACFWVUCHX9UQDK4.SEARCH&ppt=browse&ppn=browse&ssid=ayek8wu2z40000001683376947321">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur3.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>Shelves</h2>
+        <a href="https://www.ikea.com/in/en/p/vaniljstang-plant-stand-pine-black-20426342/">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur4.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>Shelves</h2>
+       <a href="https://www.ikea.com/in/en/p/micke-desk-white-80354276/">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur5.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>Shelves</h2>
+        <a href="https://www.ikea.com/in/en/p/kvistbro-storage-table-white-30322240/">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/fur6.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>Shelves</h2>
+        <a href="https://www.ikea.com/in/en/p/froeset-easy-chair-black-stained-oak-veneer-60425642/">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/flip1.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>flared kurta</h2>
+        <a href="https://www.flipkart.com/saabhi-women-printed-ethnic-dress-kurta/p/itm65e84ba9f4250?pid=KTAGHRB5B3DHKZYG&lid=LSTKTAGHRB5B3DHKZYGBTYT0Q&marketplace=FLIPKART&q=kurtas+kurtis&store=clo%2Fcfv%2Fcib%2Frkt&spotlightTagId=BestsellerId_clo%2Fcfv%2Fcib%2Frkt&srno=s_1_3&otracker=search&fm=neo%2Fmerchandising&iid=46831109-cc38-4c7f-b9ca-af8f3f347841.KTAGHRB5B3DHKZYG.SEARCH&ppt=sp&ppn=sp&ssid=bbg4b0kpq80000001683372343103&qH=5985e3313e9e348f">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/flip2.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>straight kurta</h2>
+        <a href="https://www.flipkart.com/ontek-women-embroidered-a-line-kurta/p/itm0c14f85583603?pid=KTAGM9JPSURH9BHS&lid=LSTKTAGM9JPSURH9BHSZDGR9R&marketplace=FLIPKART&fm=productRecommendation%2Fsimilar&iid=R%3As%3Bp%3AKTAGHRB5B3DHKZYG%3Bl%3ALSTKTAGHRB5B3DHKZYGBTYT0Q%3Bpt%3App%3Buid%3Ad77e77bf-ec03-11ed-9ccd-9f714a5c0da6%3B.KTAGM9JPSURH9BHS&ppt=pp&ppn=pp&ssid=bbg4b0kpq80000001683372343103&otracker=pp_reco_Similar%2BProducts_7_33.productCard.PMU_HORIZONTAL_ONTEK%2BWomen%2BEmbroidered%2BA-line%2BKurta_KTAGM9JPSURH9BHS_productRecommendation%2Fsimilar_6&otracker1=pp_reco_PINNED_productRecommendation%2Fsimilar_Similar%2BProducts_GRID_productCard_cc_7_NA_view-all&cid=KTAGM9JPSURH9BHS">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/bb1.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>bread</h2>
+        <a href="https://www.bigbasket.com/pd/1214334/britannia-treat-croissant-cocoa-creme-roll-100-veg-6x45-g/?nc=bakery-cakes-dairy&t_pg=l1-bakery-cakes-dairy&t_p=bakery-cakes-dairy&t_s=bakery-cakes-dairy&t_pos=3&t_ch=desktop">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="column">
+    <div class="card">
+       <img src="{% static 'images/bb2.png' %}" alt="img1" style="width:100%">
+      <div class="container">
+        <h2>kitkat</h2>
+        <a href="https://www.bigbasket.com/pd/40122230/nestle-kitkat-crispy-wafer-bar-275-g-pouch/?nc=cl-prod-list&t_pg=&t_p=&t_s=cl-prod-list&t_pos=1&t_ch=desktop">
+            <button class="button">BUY NOW!</button>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+</body>
+</html>
